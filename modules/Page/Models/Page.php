@@ -14,6 +14,8 @@ class Page extends BaseModel
 
     protected $table = 'pages';
 
+   
+
     /**
      * Get the list of Recently Published Pages.
      *
@@ -35,5 +37,9 @@ class Page extends BaseModel
     protected static function newFactory()
     {
         return \Modules\Page\Database\factories\PageFactory::new();
+    }
+    public function website()
+    {
+        return $this->belongsTo('Modules\Website\Models\Website');
     }
 }

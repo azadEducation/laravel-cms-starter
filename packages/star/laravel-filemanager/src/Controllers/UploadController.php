@@ -25,14 +25,13 @@ class UploadController extends LfmController
      */
     public function upload()
     {
-        $uploaded_files = request()->file('upload');
+        $uploaded_files = request()->file('file');
         $error_bag = [];
         $new_filename = null;
 
         foreach (is_array($uploaded_files) ? $uploaded_files : [$uploaded_files] as $file) {
             try {
-                $this->lfm->validateUploadedFile($file);
-
+              $this->lfm->validateUploadedFile($file);
                 $new_filename = $this->lfm->upload($file);
             } catch (\Exception $e) {
                 Log::error($e->getMessage(), [

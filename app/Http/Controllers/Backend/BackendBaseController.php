@@ -60,7 +60,7 @@ class BackendBaseController extends Controller
 
         $$module_name = $module_model::paginate();
 
-        logUserAccess($module_title.' '.$module_action);
+        logUserAccess($module_title . ' ' . $module_action);
 
         return view(
             "{$module_path}.{$module_name}.index_datatable",
@@ -90,15 +90,18 @@ class BackendBaseController extends Controller
         if (empty($term)) {
             return response()->json([]);
         }
-
-        $query_data = $module_model::where('name', 'LIKE', "%{$term}%")->orWhere('slug', 'LIKE', "%{$term}%")->limit(7)->get();
-
+        if ($module_name == "websites") {
+            $query_data = $module_model::where('name', 'LIKE', "%{$term}%")->orWhere('slug', 'LIKE', "%{$term}%")->limit(7)->get();
+        } else {
+            $current_website_id = session('current_website_id');
+            $query_data = $module_model::where('website_id', $current_website_id)->where('name', 'LIKE', "%{$term}%")->orWhere('slug', 'LIKE', "%{$term}%")->limit(7)->get();
+        }
         $$module_name = [];
 
         foreach ($query_data as $row) {
             $$module_name[] = [
                 'id' => $row->id,
-                'text' => $row->name.' (Slug: '.$row->slug.')',
+                'text' => $row->name . ' (Slug: ' . $row->slug . ')',
             ];
         }
 
@@ -122,9 +125,14 @@ class BackendBaseController extends Controller
         $module_action = 'List';
 
         $page_heading = label_case($module_title);
-        $title = $page_heading.' '.label_case($module_action);
+        $title = $page_heading . ' ' . label_case($module_action);
 
-        $$module_name = $module_model::select('id', 'name', 'updated_at');
+        if ($module_name != "websites") {
+            $current_website_id = session('current_website_id');
+            $$module_name = $module_model::where('website_id', $current_website_id)->select('id', 'name', 'updated_at');
+        } else {
+            $$module_name = $module_model::select('id', 'name', 'updated_at');
+        }
 
         $data = $$module_name;
 
@@ -167,7 +175,7 @@ class BackendBaseController extends Controller
 
         $module_action = 'Create';
 
-        logUserAccess($module_title.' '.$module_action);
+        logUserAccess($module_title . ' ' . $module_action);
 
         return view(
             "{$module_path}.{$module_name}.create",
@@ -196,11 +204,11 @@ class BackendBaseController extends Controller
 
         $$module_name_singular = $module_model::create($request->all());
 
-        flash(icon()."New '".Str::singular($module_title)."' Added")->success()->important();
+        flash(icon() . "New '" . Str::singular($module_title) . "' Added")->success()->important();
 
-        logUserAccess($module_title.' '.$module_action.' | Id: '.$$module_name_singular->id);
+        logUserAccess($module_title . ' ' . $module_action . ' | Id: ' . $$module_name_singular->id);
 
-        return redirect("admin/{$module_name}");
+        return redirect("{$module_name}");
     }
 
     /**
@@ -222,7 +230,7 @@ class BackendBaseController extends Controller
 
         $$module_name_singular = $module_model::findOrFail($id);
 
-        logUserAccess($module_title.' '.$module_action.' | Id: '.$$module_name_singular->id);
+        logUserAccess($module_title . ' ' . $module_action . ' | Id: ' . $$module_name_singular->id);
 
         return view(
             "{$module_path}.{$module_name}.show",
@@ -245,12 +253,11 @@ class BackendBaseController extends Controller
         $module_icon = $this->module_icon;
         $module_model = $this->module_model;
         $module_name_singular = Str::singular($module_name);
-
         $module_action = 'Edit';
 
         $$module_name_singular = $module_model::findOrFail($id);
-
-        logUserAccess($module_title.' '.$module_action.' | Id: '.$$module_name_singular->id);
+        // dd($module_name);
+        logUserAccess($module_title . ' ' . $module_action . ' | Id: ' . $$module_name_singular->id);
 
         return view(
             "{$module_path}.{$module_name}.edit",
@@ -284,9 +291,9 @@ class BackendBaseController extends Controller
 
         $$module_name_singular->update($request->all());
 
-        flash(icon().' '.Str::singular($module_title)."' Updated Successfully")->success()->important();
+        flash(icon() . ' ' . Str::singular($module_title) . "' Updated Successfully")->success()->important();
 
-        logUserAccess($module_title.' '.$module_action.' | Id: '.$$module_name_singular->id);
+        logUserAccess($module_title . ' ' . $module_action . ' | Id: ' . $$module_name_singular->id);
 
         return redirect()->route("backend.{$module_name}.show", $$module_name_singular->id);
     }
@@ -316,11 +323,11 @@ class BackendBaseController extends Controller
 
         $$module_name_singular->delete();
 
-        flash(icon().''.label_case($module_name_singular).' Deleted Successfully!')->success()->important();
+        flash(icon() . '' . label_case($module_name_singular) . ' Deleted Successfully!')->success()->important();
 
-        logUserAccess($module_title.' '.$module_action.' | Id: '.$$module_name_singular->id);
+        logUserAccess($module_title . ' ' . $module_action . ' | Id: ' . $$module_name_singular->id);
 
-        return redirect("admin/{$module_name}");
+        return redirect("{$module_name}");
     }
 
     /**
@@ -342,7 +349,7 @@ class BackendBaseController extends Controller
 
         $$module_name = $module_model::onlyTrashed()->orderBy('deleted_at', 'desc')->paginate();
 
-        logUserAccess($module_title.' '.$module_action);
+        logUserAccess($module_title . ' ' . $module_action);
 
         return view(
             "{$module_path}.{$module_name}.trash",
@@ -375,10 +382,10 @@ class BackendBaseController extends Controller
         $$module_name_singular = $module_model::withTrashed()->find($id);
         $$module_name_singular->restore();
 
-        flash(icon().''.label_case($module_name_singular).' Data Restoreded Successfully!')->success()->important();
+        flash(icon() . '' . label_case($module_name_singular) . ' Data Restoreded Successfully!')->success()->important();
 
-        logUserAccess($module_title.' '.$module_action.' | Id: '.$$module_name_singular->id);
+        logUserAccess($module_title . ' ' . $module_action . ' | Id: ' . $$module_name_singular->id);
 
-        return redirect("admin/{$module_name}");
+        return redirect("{$module_name}");
     }
 }

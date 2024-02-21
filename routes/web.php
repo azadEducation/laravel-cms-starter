@@ -29,7 +29,7 @@ Route::get('dashboard', 'App\Http\Controllers\Frontend\FrontendController@index'
 * --------------------------------------------------------------------
 */
 Route::group(['namespace' => 'App\Http\Controllers\Frontend', 'as' => 'frontend.'], function () {
-    Route::get('/', 'FrontendController@index')->name('index');
+    // Route::get('/', 'FrontendController@index')->name('index');
     Route::get('home', 'FrontendController@index')->name('home');
     Route::get('privacy', 'FrontendController@privacy')->name('privacy');
     Route::get('terms', 'FrontendController@terms')->name('terms');
@@ -59,7 +59,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Frontend', 'as' => 'frontend.
 * These routes need view-backend permission
 * --------------------------------------------------------------------
 */
-Route::group(['namespace' => 'App\Http\Controllers\Backend', 'prefix' => 'admin', 'as' => 'backend.', 'middleware' => ['auth', 'can:view_backend']], function () {
+Route::group(['namespace' => 'App\Http\Controllers\Backend', 'prefix' => '/', 'as' => 'backend.', 'middleware' => ['auth', 'can:view_backend']], function () {
     /**
      * Backend Dashboard
      * Namespaces indicate folder structure.
@@ -80,6 +80,12 @@ Route::group(['namespace' => 'App\Http\Controllers\Backend', 'prefix' => 'admin'
         Route::post("{$module_name}", "{$controller_name}@store")->name("{$module_name}.store");
     });
 
+    Route::group(['middleware' => ['permission:edit_settings']], function () {
+        $module_name = 'websites';
+        $controller_name = 'WebsiteController';
+        Route::get("{$module_name}", "{$controller_name}@index")->name("{$module_name}");
+        Route::post("{$module_name}", "{$controller_name}@store")->name("{$module_name}.store");
+    });
     /*
     *
     *  Notification Routes

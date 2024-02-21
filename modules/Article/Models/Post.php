@@ -34,6 +34,10 @@ class Post extends BaseModel
     public function category()
     {
         return $this->belongsTo('Modules\Category\Models\Category');
+    } 
+    public function website()
+    {
+        return $this->belongsTo('Modules\Website\Models\Website');
     }
 
     public function tags()

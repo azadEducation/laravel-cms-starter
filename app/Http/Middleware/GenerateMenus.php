@@ -43,7 +43,7 @@ class GenerateMenus
                 'class' => 'nav-title',
             ])->data([
                 'order' => 101,
-                'permission' => ['edit_settings', 'view_backups', 'view_users', 'view_roles', 'view_logs'],
+                'permission' => ['edit_website','edit_settings', 'view_backups', 'view_users', 'view_roles', 'view_logs'],
             ]);
 
             // Settings

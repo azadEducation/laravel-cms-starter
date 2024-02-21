@@ -1,0 +1,33 @@
+<?php
+
+namespace Modules\Website\Models;
+
+use App\Models\BaseModel;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+class Website extends BaseModel
+{
+    use HasFactory;
+    use SoftDeletes;
+
+    protected $table = 'websites';
+
+    public function posts()
+    {
+        return $this->hasMany('Modules\Article\Models\Post');
+    }
+    public function page()
+    {
+        return $this->hasMany('Modules\Article\Models\Post');
+    }
+    /**
+     * Create a new factory instance for the model.
+     *
+     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     */
+    protected static function newFactory()
+    {
+        return \Modules\Website\Database\factories\WebsiteFactory::new();
+    }
+}

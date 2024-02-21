@@ -3,5 +3,6 @@
     "Article": true,
     "Category": true,
     "Tag": true,
-    "Comment": true
+    "Comment": true,
+    "Website": true
 }

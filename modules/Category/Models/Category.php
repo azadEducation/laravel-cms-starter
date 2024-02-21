@@ -20,6 +20,10 @@ class Category extends BaseModel
     {
         return $this->hasMany('Modules\Article\Models\Post');
     }
+    public function website()
+    {
+        return $this->belongsTo('Modules\Website\Models\Website');
+    }
 
     /**
      * Create a new factory instance for the model.

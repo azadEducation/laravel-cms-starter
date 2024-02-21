@@ -1,0 +1,24 @@
+{
+    "name": "{{composerVendor}}/website",
+    "description": "Website module",
+    "type": "laravel-module",
+    "authors": [
+        {
+            "name": "Star",
+            "email": "star@local.dev"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Website\\": ""
+        }
+    }
+}
