@@ -351,5 +351,5 @@
 </script>
 @endpush
 
-<!-- Summernote editor -->
-<x-library.summernote />
+<!-- TinyMCE editor -->
+<x-library.tinymce selector="textarea#content" />

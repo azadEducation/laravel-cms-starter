@@ -175,5 +175,5 @@
 <!-- Select2 Library -->
 <x-library.select2 />
 
-<!-- Summernote editor -->
-<x-library.summernote />
+<!-- TinyMCE editor -->
+<x-library.tinymce selector="textarea#content" />
