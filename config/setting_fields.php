@@ -80,7 +80,7 @@ return [
                 'class' => '', // any class for input
                 'value' => 'images/default.png', // default value if you want
             ],
-            [
+[
                 'type' => 'text', // input fields type
                 'data' => 'text', // data type, string, int, boolean
                 'name' => 'meta_fb_app_id', // unique name for field
@@ -174,7 +174,7 @@ return [
                 'class' => '', // any class for input
                 'value' => '', // default value if you want
             ],
-            [
+[
                 'type' => 'text', // input fields type
                 'data' => 'string', // data type, string, int, boolean
                 'name' => 'facebook_url', // unique name for field

@@ -8,7 +8,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Str;
-use Costar\DataTables\DataTables;
+use Star\DataTables\DataTables;
 
 class BackendController extends Controller
 {

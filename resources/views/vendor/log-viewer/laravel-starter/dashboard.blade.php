@@ -7,11 +7,11 @@ $module_icon = "fa-solid fa-list-check";
 @section('title') {{ __('Log Viewer Dashboard') }} @endsection
 
 @section('breadcrumbs')
-<x-backend-breadcrumbs>
-    <x-backend-breadcrumb-item type="active" icon='{{ $module_icon }}'>
+<x-backend.breadcrumbs>
+    <x-backend.breadcrumb-item type="active" icon='{{ $module_icon }}'>
         @lang('Log Viewer')
-    </x-backend-breadcrumb-item>
-</x-backend-breadcrumbs>
+    </x-backend.breadcrumb-item>
+</x-backend.breadcrumbs>
 @endsection
 
 @section('content')
@@ -30,7 +30,7 @@ $module_icon = "fa-solid fa-list-check";
 
             <div class="col-4">
                 <div class="btn-toolbar float-end" role="toolbar" aria-label="Toolbar with button groups">
-                    <x-backend.buttons.return-back />
+                    <x-buttons.return-back />
                     <a class="btn btn-primary ms-1" href="{{ route('log-viewer::logs.list') }}" type="button">
                         <i class="fas fa-list-ol"></i> @lang('Logs by Date')
                     </a>
@@ -80,7 +80,7 @@ $module_icon = "fa-solid fa-list-check";
 @endsection
 
 @push('after-styles')
-@include('log-viewer::laravel-starter.partials.style')
+@include('log-viewer::laravel-star.partials.style')
 @endpush
 
 @push('after-scripts')

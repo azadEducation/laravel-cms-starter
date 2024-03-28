@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Facade;
  * @method  array all()
  * @method  array getCached()
  * @method  array scan()
- * @method  \Star\Modules\Collection toCollection()
  * @method  array getScanPaths()
  * @method  array allEnabled()
  * @method  array allDisabled()

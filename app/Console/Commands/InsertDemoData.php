@@ -82,7 +82,7 @@ class InsertDemoData extends Command
             'categories',
             'tags',
             'comments',
-            'activity_log',
+                        'activity_log',
         ];
 
         $confirmed = confirm(

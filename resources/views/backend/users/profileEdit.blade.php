@@ -3,20 +3,20 @@
 @section('title') {{ __($module_action) }} {{ __($module_title) }} @endsection
 
 @section('breadcrumbs')
-<x-backend-breadcrumbs>
-    <x-backend-breadcrumb-item route='{{route("backend.$module_name.index")}}' icon='{{ $module_icon }}'>
+<x-backend.breadcrumbs>
+    <x-backend.breadcrumb-item route='{{route("backend.$module_name.index")}}' icon='{{ $module_icon }}'>
         {{ __($module_title) }}
-    </x-backend-breadcrumb-item>
-    <x-backend-breadcrumb-item route='{{route("backend.$module_name.show", $user->id)}}' icon='{{ $module_icon }}'>
+    </x-backend.breadcrumb-item>
+    <x-backend.breadcrumb-item route='{{route("backend.$module_name.show", $user->id)}}' icon='{{ $module_icon }}'>
         {{ $user->name }}
-    </x-backend-breadcrumb-item>
+    </x-backend.breadcrumb-item>
 
-    <x-backend-breadcrumb-item type="active">{{ __($module_action) }}</x-backend-breadcrumb-item>
-</x-backend-breadcrumbs>
+    <x-backend.breadcrumb-item type="active">{{ __($module_action) }}</x-backend.breadcrumb-item>
+</x-backend.breadcrumbs>
 @endsection
 
 @section('content')
-<x-backend.layouts.edit :data="$user">
+<x-backend.layouts-edit :data="$user">
     <x-backend.section-header>
         <i class="{{ $module_icon }}"></i> {{ __('Profile') }} <small class="text-muted">{{ __($module_action) }}</small>
 
@@ -24,7 +24,7 @@
             @lang(":module_name Management Dashboard", ['module_name'=>__(Str::title($module_name))])
         </x-slot>
         <x-slot name="toolbar">
-            <x-backend.buttons.return-back />
+            <x-buttons.return-back />
         </x-slot>
     </x-backend.section-header>
 
@@ -167,61 +167,13 @@
                         {{ html()->text($field_name)->placeholder($field_placeholder)->class('form-control')->attributes(["$required"]) }}
                     </div>
                 </div>
-                <div class="col-12 col-sm-3 mb-3">
-                    <div class="form-group">
-                        <?php
-                        $field_name = 'url_facebook';
-                        $field_label = label_case($field_name);
-                        $field_placeholder = $field_label;
-                        $required = "";
-                        ?>
-                        {{ html()->label($field_label, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-                        {{ html()->text($field_name)->placeholder($field_placeholder)->class('form-control')->attributes(["$required"]) }}
-                    </div>
-                </div>
-                <div class="col-12 col-sm-3 mb-3">
-                    <div class="form-group">
-                        <?php
-                        $field_name = 'url_instagram';
-                        $field_label = label_case($field_name);
-                        $field_placeholder = $field_label;
-                        $required = "";
-                        ?>
-                        {{ html()->label($field_label, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-                        {{ html()->text($field_name)->placeholder($field_placeholder)->class('form-control')->attributes(["$required"]) }}
-                    </div>
-                </div>
-                <div class="col-12 col-sm-3 mb-3">
-                    <div class="form-group">
-                        <?php
-                        $field_name = 'url_twitter';
-                        $field_label = label_case($field_name);
-                        $field_placeholder = $field_label;
-                        $required = "";
-                        ?>
-                        {{ html()->label($field_label, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-                        {{ html()->text($field_name)->placeholder($field_placeholder)->class('form-control')->attributes(["$required"]) }}
-                    </div>
-                </div>
-                <div class="col-12 col-sm-3 mb-3">
-                    <div class="form-group">
-                        <?php
-                        $field_name = 'url_linkedin';
-                        $field_label = label_case($field_name);
-                        $field_placeholder = $field_label;
-                        $required = "";
-                        ?>
-                        {{ html()->label($field_label, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-                        {{ html()->text($field_name)->placeholder($field_placeholder)->class('form-control')->attributes(["$required"]) }}
-                    </div>
-                </div>
             </div>
             <div class="row mt-4">
                 <div class="col-6">
-                    <x-backend.buttons.save />
+                    <x-buttons.save />
                 </div>
                 <div class="col-6 text-end">
-                    <x-backend.buttons.cancel />
+                    <x-buttons.cancel />
                 </div>
             </div>
             {{ html()->closeModelForm() }}

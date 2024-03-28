@@ -27,7 +27,7 @@ return [
 
     'stubs' => [
         'enabled' => false,
-        'path' => base_path('vendor/star/laravel-modules/src/Commands/stubs'),
+        'path' => base_path('packages/star/laravel-modules/src/Commands/stubs'),
         'files' => [
             'routes/web' => 'routes/web.php',
             'routes/api' => 'routes/api.php',
@@ -222,7 +222,14 @@ return [
     |
     */
 
-    'composer' => [],
+    'composer' => [
+        'vendor' => 'star',
+        'author' => [
+            'name' => 'Nicolas Widart',
+            'email' => 'n.widart@gmail.com',
+        ],
+        'composer-output' => false,
+    ],
 
     /*
     |--------------------------------------------------------------------------

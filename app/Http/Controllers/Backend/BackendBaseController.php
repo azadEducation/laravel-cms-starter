@@ -98,7 +98,8 @@ class BackendBaseController extends Controller
         foreach ($query_data as $row) {
             $$module_name[] = [
                 'id' => $row->id,
-                'text' => $row->name.' (Slug: '.$row->slug.')',
+                'text' => $row->name,
+                // 'text' => $row->name.' (Slug: '.$row->slug.')',
             ];
         }
 
@@ -195,7 +196,10 @@ class BackendBaseController extends Controller
         $module_action = 'Store';
 
         $data = $request->all();
-        $data['slug'] = $data['slug'] ? slugify($data['slug']) : slugify($data['name']);
+        if($data['slug']) {
+            $data['slug'] = slugify($data['slug']);
+        }
+        // $data['slug'] = $data['slug'] ? slugify($data['slug']) : slugify($data['name']);
 
         $$module_name_singular = $module_model::create($data);
 

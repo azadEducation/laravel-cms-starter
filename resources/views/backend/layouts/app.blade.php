@@ -10,18 +10,20 @@
     <meta name="description" content="{{ setting('meta_description') }}">
 
     <!-- Shortcut Icon -->
-    <link rel="shortcut icon" href="{{asset('images/favicon.svg')}}">
+    <link rel="shortcut icon" href="{{asset('images/favicon.svg')}}" />
     <link rel="icon" type="image/svg" href="{{asset('images/favicon.svg')}}" />
-    <link rel="apple-touch-icon" sizes="76x76" href="{{asset('images/favicon.svg')}}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{asset('images/favicon.svg')}}" />
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Styles -->
     @vite(['resources/assets/css/app-backend.scss'])
-    <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('vendor/fontawesome-pro/css/all.min.css') }}" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+UI&display=swap" rel="stylesheet" />
+    <!-- / Styles -->
+
     @stack('after-styles')
     @livewireStyles
     <!-- Styles -->

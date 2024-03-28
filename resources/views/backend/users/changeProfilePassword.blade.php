@@ -7,13 +7,13 @@ $module_name_singular = \Illuminate\Support\Str::singular($module_name);
 @section('title') {{ __($module_action) }} {{ __($module_title) }} @endsection
 
 @section('breadcrumbs')
-<x-backend-breadcrumbs>
-    <x-backend-breadcrumb-item route='{{route("backend.$module_name.index")}}' icon='{{ $module_icon }}'>
+<x-backend.breadcrumbs>
+    <x-backend.breadcrumb-item route='{{route("backend.$module_name.index")}}' icon='{{ $module_icon }}'>
         {{ __($module_title) }}
-    </x-backend-breadcrumb-item>
+    </x-backend.breadcrumb-item>
 
-    <x-backend-breadcrumb-item type="active">{{__('Change Password')}}</x-backend-breadcrumb-item>
-</x-backend-breadcrumbs>
+    <x-backend.breadcrumb-item type="active">{{__('Change Password')}}</x-backend.breadcrumb-item>
+</x-backend.breadcrumbs>
 @endsection
 
 @section('content')
@@ -26,7 +26,7 @@ $module_name_singular = \Illuminate\Support\Str::singular($module_name);
                 @lang(":module_name Management Dashboard", ['module_name'=>__(Str::title($module_name))])
             </x-slot>
             <x-slot name="toolbar">
-                <x-backend.buttons.return-back />
+                <x-buttons.return-back />
             </x-slot>
         </x-backend.section-header>
 
@@ -77,7 +77,7 @@ $module_name_singular = \Illuminate\Support\Str::singular($module_name);
                         <div class="row">
                             <div class="col-4">
                                 <div class="form-group">
-                                    {{ html()->button($text = "<i class='fas fa-save'></i>".__("Save"), $type = 'submit')->class('btn btn-success') }}
+                                    {{ html()->button($text = "<i class='fas fa-save'></i> Save", $type = 'submit')->class('btn btn-success') }}
                                 </div>
                             </div>
                         </div>

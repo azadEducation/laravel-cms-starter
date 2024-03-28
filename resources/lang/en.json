@@ -26,10 +26,18 @@
     "Link of all the online/social profiles.": "Link of all the online/social profiles.",
     "Website URL": "Website URL",
 
+
     "Name": "Name",
     "Email": "Email",
     "Password": "Password",
     "Password Confirmation": "Password Confirmation",
+    "User": "User",
+    "Log in": "Log in",
+    "Change Password": "Change Password",
+    "Remember me": "Remember me",
+    "Forgot your password?": "Forgot your password?",
+    "Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.": "Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.",
+    "Email Password Reset Link": "Email Password Reset Link",
 
     "Value": "Value",
     "Index": "Index",
@@ -44,6 +52,7 @@
     "Create": "Create",
     "Created": "Created",
     "Created at": "Created at",
+    "Written by": "Written by",
     "Update": "Update",
     "Updated": "Updated",
     "Updated at": "Updated at",
@@ -52,6 +61,7 @@
     "Deleted at": "Deleted at",
     "Deleted List": "Deleted List",
     "Trash": "Trash",
+    "View trash": "View trash",
     "Download": "Download",
 
     "Activity Log": "Activity Log",
@@ -61,11 +71,9 @@
     "At": "At",
     "Type": "Type",
 
-    "User": "User",
-    "Change Password": "Change Password",
-
+    "Access Control": "Access Control",
     "Roles": "Roles",
-
+    "Users": "Users",
     "Permissions": "Permissions",
     "All Permissions": "All Permissions",
 
@@ -103,7 +111,6 @@
     "Total": "Total",
     "Browse": "Browse",
     "Management": "Management",
-
     "Log Viewer": "Log Viewer",
     "Log Viewer Module": "Log Viewer Module",
     "Logs by Date": "Logs by Date",
@@ -112,7 +119,6 @@
     "Details": "Details",
     "Levels": "Levels",
     "Log Info": "Log Info",
-
     "Select an option": "Select an option",
 
     "URL": "URL",
@@ -122,6 +128,7 @@
     "Inactive": "Inactive",
     "Email Confirmed": "Email Confirmed",
     "Email Credentials": "Send account credentials to the user",
+    "Edit Profile": "Edit Profile",
 
     "Open main menu": "Open main menu",
     "Home": "Home",
@@ -135,7 +142,9 @@
     "Draft": "Draft",
     "Published": "Published",
     "Unpublished": "Unpublished",
-
+    "Showing": "展示",
+    "Previous": "Previous",
+    "Next": "Next",
     "View details": "View details",
 
     "Recent Pages": "Recent Pages",
@@ -143,6 +152,8 @@
     "Recent Posts": "Recent Posts",
     "Recently published posts": "Recently published posts",
 
+    "Language changed to": "Language changed to",
+    
     "The :attribute must contain at least one letter.": "The :attribute must contain at least one letter.",
     "The :attribute must contain at least one number.": "The :attribute must contain at least one number.",
     "The :attribute must contain at least one symbol.": "The :attribute must contain at least one symbol.",

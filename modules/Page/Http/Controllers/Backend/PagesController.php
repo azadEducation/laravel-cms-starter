@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
-use Costar\DataTables\DataTables;
+use Star\DataTables\DataTables;
 
 class PagesController extends BackendBaseController
 {

@@ -7,13 +7,13 @@ $module_icon = "fa-solid fa-list-check";
 @section('title') {{ __('Log Viewer Dashboard') }} @endsection
 
 @section('breadcrumbs')
-<x-backend-breadcrumbs>
-    <x-backend-breadcrumb-item route="{{ route('log-viewer::dashboard') }}" icon='{{ $module_icon }}'>
+<x-backend.breadcrumbs>
+    <x-backend.breadcrumb-item route="{{ route('log-viewer::dashboard') }}" icon='{{ $module_icon }}'>
         {{ __('Log Viewer Dashboard') }}
-    </x-backend-breadcrumb-item>
-    <x-backend-breadcrumb-item route="{{ route('log-viewer::logs.list') }}">{{ __('Logs by Date') }}</x-backend-breadcrumb-item>
-    <x-backend-breadcrumb-item type="active">@lang('Log') [{{ $log->date }}]</x-backend-breadcrumb-item>
-</x-backend-breadcrumbs>
+    </x-backend.breadcrumb-item>
+    <x-backend.breadcrumb-item route="{{ route('log-viewer::logs.list') }}">{{ __('Logs by Date') }}</x-backend.breadcrumb-item>
+    <x-backend.breadcrumb-item type="active">@lang('Log') [{{ $log->date }}]</x-backend.breadcrumb-item>
+</x-backend.breadcrumbs>
 @endsection
 
 @section('content')
@@ -32,7 +32,7 @@ $module_icon = "fa-solid fa-list-check";
 
             <div class="col-4">
                 <div class="btn-toolbar float-end" role="toolbar" aria-label="Toolbar with button groups">
-                    <x-backend.buttons.return-back />
+                    <x-buttons.return-back />
                 </div>
             </div>
         </div>
@@ -289,5 +289,5 @@ $module_icon = "fa-solid fa-list-check";
 @endpush
 
 @push('after-styles')
-@include('log-viewer::laravel-starter.partials.style')
+@include('log-viewer::laravel-star.partials.style')
 @endpush

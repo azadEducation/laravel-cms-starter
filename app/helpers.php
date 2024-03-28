@@ -19,6 +19,26 @@ if (! function_exists('app_name')) {
     }
 }
 
+/**
+ * Get or Set the Settings Values.
+ */
+if (! function_exists('setting')) {
+    function setting($key, $default = null)
+    {
+        if (is_null($key)) {
+            return new App\Models\Setting();
+        }
+
+        if (is_array($key)) {
+            return App\Models\Setting::set($key[0], $key[1]);
+        }
+
+        $value = App\Models\Setting::get($key);
+
+        return is_null($value) ? value($default) : $value;
+    }
+}
+
 /*
  * Global helpers file with misc functions.
  */
@@ -148,26 +168,6 @@ if (! function_exists('fielf_required')) {
     }
 }
 
-/**
- * Get or Set the Settings Values.
- */
-if (! function_exists('setting')) {
-    function setting($key, $default = null)
-    {
-        if (is_null($key)) {
-            return new App\Models\Setting();
-        }
-
-        if (is_array($key)) {
-            return App\Models\Setting::set($key[0], $key[1]);
-        }
-
-        $value = App\Models\Setting::get($key);
-
-        return is_null($value) ? value($default) : $value;
-    }
-}
-
 /*
  * Show Human readable file size
  */
@@ -265,7 +265,7 @@ if (! function_exists('icon')) {
      */
     function icon($string = 'fa-regular fa-circle-check')
     {
-        return "<i class='".$string."'></i>&nbsp;";
+        return "<i class='".$string."'></i>";
     }
 }
 
@@ -328,6 +328,7 @@ if (! function_exists('date_today')) {
      *
      * Carbon Locale will be considered here
      * Example:
+     * শুক্রবার, ২৪ জুলাই ২০২০
      * Friday, July 24, 2020
      */
     function date_today()
@@ -336,6 +337,9 @@ if (! function_exists('date_today')) {
     }
 }
 
+/*
+ * Language direction
+ */
 if (! function_exists('language_direction')) {
     /**
      * return direction of languages.

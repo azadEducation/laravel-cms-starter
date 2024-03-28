@@ -197,7 +197,7 @@ class PostsController extends Controller
         $module_action = 'Store';
 
         $data = $request->except('tags_list');
-        $data['slug'] = $data['slug'] ? slugify($data['slug']) : $data['name'];
+        $data['slug'] = $data['slug'] ? slugify($data['slug']) : slugify($data['name']);
         $data['created_by_name'] = auth()->user()->name;
 
         $$module_name_singular = $module_model::create($data);
@@ -295,7 +295,7 @@ class PostsController extends Controller
         $$module_name_singular = $module_model::findOrFail($id);
 
         $data = $request->except('tags_list');
-        $data['slug'] = $data['slug'] ? slugify($data['slug']) : slugify($data['name']);
+        $data['slug'] = $data['slug'] ? slugify($data['slug']) : $data['name'];
 
         $$module_name_singular->update($data);
 

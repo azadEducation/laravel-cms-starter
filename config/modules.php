@@ -28,7 +28,7 @@ return [
     'stubs' => [
         'enabled' => true,
         'path' => base_path('packages/star/laravel-modules/src/Commands/stubs'),
-        'files' => [
+                'files' => [
             'routes/web' => 'routes/web.php',
             'routes/api' => 'routes/api.php',
             'views/index' => 'Resources/views/index.blade.php',

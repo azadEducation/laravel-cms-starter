@@ -21,19 +21,19 @@ class GenerateMenus
          * *********************************************************************
          */
         \Menu::make('admin_sidebar', function ($menu) {
-            // Tags
-            $menu->add('<i class="nav-icon fas fa-tags"></i> '.__('Tags'), [
-                'route' => 'backend.tags.index',
-                'class' => 'nav-item',
-            ])
+        // Tags
+        $menu->add('<i class="nav-icon fas fa-tags"></i> '.__('Tags'), [
+        'route' => 'backend.tags.index',
+        'class' => 'nav-item',
+        ])
                 ->data([
-                    'order' => 84,
+        'order' => 84,
                     'activematches' => ['admin/tags*'],
-                    'permission' => ['view_tags'],
-                ])
+        'permission' => ['view_tags'],
+        ])
                 ->link->attr([
-                    'class' => 'nav-link',
-                ]);
+        'class' => 'nav-link',
+        ]);
         })->sortBy('order');
 
         return $next($request);

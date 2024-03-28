@@ -25,7 +25,7 @@
 </section>
 
 <section class="py-6 sm:py-10 px-6 sm:px-20">
-    <div class="container mx-auto flex flex-col">
+    <div class="container mx-auto">
         <div class="w-full flex flex-col">
             <div class="pb-5 border-b">
                 <p>
