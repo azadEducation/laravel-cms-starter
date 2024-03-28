@@ -29,9 +29,6 @@ class GenerateMenus
             ]);
 
 
-
-
-
             /**
              * Separator: Access Management
              */ 
@@ -49,7 +46,7 @@ class GenerateMenus
                 'route' => 'backend.settings',
                 'class' => 'nav-item',
             ])->data([
-                'order' => 60,
+                'order' => 70,
                 'activematches' => 'admin/settings*',
                 'permission' => ['edit_settings'],
             ])->link->attr([
@@ -62,7 +59,7 @@ class GenerateMenus
             $accessControl = $menu->add('<i class="nav-icon fa-solid fa-user-gear"></i> '.__('Access Control'), [
                 'class' => 'nav-group',
             ])->data([
-                'order' => 70,
+                'order' => 80,
                 'activematches' => [
                     'admin/users*',
                     'admin/roles*',
@@ -78,7 +75,7 @@ class GenerateMenus
                 'route' => 'backend.users.index',
                 'class' => 'nav-item',
             ])->data([
-                'order' => 71,
+                'order' => 81,
                 'activematches' => 'admin/users*',
                 'permission' => ['view_users'],
             ])->link->attr([
@@ -89,7 +86,7 @@ class GenerateMenus
                 'route' => 'backend.roles.index',
                 'class' => 'nav-item',
             ])->data([
-                'order' => 72,
+                'order' => 82,
                 'activematches' => 'admin/roles*',
                 'permission' => ['view_roles'],
             ])->link->attr([
@@ -103,7 +100,7 @@ class GenerateMenus
                 'route' => 'backend.notifications.index',
                 'class' => 'nav-item',
             ])->data([
-                'order' => 80,
+                'order' => 90,
                 'activematches' => 'admin/notifications*',
                 'permission' => [],
             ])->link->attr([
@@ -117,7 +114,7 @@ class GenerateMenus
                 'route' => 'backend.backups.index',
                 'class' => 'nav-item',
             ])->data([
-                'order' => 90,
+                'order' => 100,
                 'activematches' => 'admin/backups*',
                 'permission' => ['view_backups'],
             ])->link->attr([
@@ -130,7 +127,7 @@ class GenerateMenus
             $accessControl = $menu->add('<i class="nav-icon fa-solid fa-list-check"></i> '.__('Log Viewer'), [
                 'class' => 'nav-group',
             ])->data([
-                'order' => 100,
+                'order' => 110,
                 'activematches' => [
                     'log-viewer*',
                 ],
@@ -145,7 +142,7 @@ class GenerateMenus
                 'route' => 'log-viewer::dashboard',
                 'class' => 'nav-item',
             ])->data([
-                'order' => 101,
+                'order' => 111,
                 'activematches' => 'admin/log-viewer',
             ])->link->attr([
                 'class' => 'nav-link',
@@ -155,7 +152,7 @@ class GenerateMenus
                 'route' => 'log-viewer::logs.list',
                 'class' => 'nav-item',
             ])->data([
-                'order' => 102,
+                'order' => 112,
                 'activematches' => 'admin/log-viewer/logs*',
             ])->link->attr([
                 'class' => 'nav-link',

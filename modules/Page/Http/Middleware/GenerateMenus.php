@@ -22,20 +22,17 @@ class GenerateMenus
          * *********************************************************************
          */
         \Menu::make('admin_sidebar', function ($menu) {
-        
             // Pages
-        $menu->add('<i class="nav-icon fa-regular fa-sun"></i> '.__('Pages'), [
-        'route' => 'backend.pages.index',
-        'class' => 'nav-item',
-        ])
-            ->data([
-        'order'         => 77,
+            $menu->add('<i class="nav-icon fa-regular fa-sun"></i> '.__('Pages'), [
+                'route' => 'backend.pages.index',
+                'class' => 'nav-item',
+            ])->data([
+                'order'         => 20,
                 'activematches' => ['admin/pages*'],
-        'permission'    => ['view_pages'],
-        ])
-            ->link->attr([
-        'class' => 'nav-link',
-        ]);
+                'permission'    => ['view_pages'],
+            ])->link->attr([
+                'class' => 'nav-link',
+            ]);
         })->sortBy('order');
 
         return $next($request);
