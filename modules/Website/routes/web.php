@@ -19,19 +19,19 @@ use Illuminate\Support\Facades\Route;
 *
 * --------------------------------------------------------------------
 */
-Route::group(['namespace' => '\Modules\Website\Http\Controllers\Frontend', 'as' => 'frontend.', 'middleware' => 'web', 'prefix' => ''], function () {
+// Route::group(['namespace' => '\Modules\Website\Http\Controllers\Frontend', 'as' => 'frontend.', 'middleware' => 'web', 'prefix' => ''], function () {
 
-    /*
-     *
-     *  Frontend Websites Routes
-     *
-     * ---------------------------------------------------------------------
-     */
-    $module_name = 'websites';
-    $controller_name = 'WebsitesController';
-    Route::get("$module_name", ['as' => "$module_name.index", 'uses' => "$controller_name@index"]);
-    Route::get("$module_name/{id}-{slug?}", ['as' => "$module_name.show", 'uses' => "$controller_name@show"]);
-});
+//     /*
+//      *
+//      *  Frontend Websites Routes
+//      *
+//      * ---------------------------------------------------------------------
+//      */
+//     $module_name = 'websites';
+//     $controller_name = 'WebsitesController';
+//     Route::get("$module_name", ['as' => "$module_name.index", 'uses' => "$controller_name@index"]);
+//     Route::get("$module_name/{id}-{slug?}", ['as' => "$module_name.show", 'uses' => "$controller_name@show"]);
+// });
 
 /*
 *

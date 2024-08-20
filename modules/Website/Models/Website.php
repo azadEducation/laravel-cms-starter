@@ -13,14 +13,6 @@ class Website extends BaseModel
 
     protected $table = 'websites';
 
-    public function posts()
-    {
-        return $this->hasMany('Modules\Article\Models\Post');
-    }
-    public function page()
-    {
-        return $this->hasMany('Modules\Article\Models\Post');
-    }
     /**
      * Create a new factory instance for the model.
      *

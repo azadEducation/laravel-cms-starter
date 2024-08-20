@@ -155,7 +155,7 @@
             $required = 'required';
             ?>
             {{ html()->label($field_label, $field_name)->class('form-label') }} {!! fielf_required($required) !!}
-            {{ html()->select($field_name, isset($data) ? optional($data->$field_relation)->pluck('name', 'id') : '')->placeholder($field_placeholder)->class('form-select select2-website')->attributes(["$required"]) }}
+            {{ html()->select($field_name, isset($data->$field_relation) ? optional($data->$field_relation)->pluck('name', 'id') : '')->placeholder($field_placeholder)->class('form-select select2-website')->attributes(["$required"]) }}
         </div>
     </div>
    

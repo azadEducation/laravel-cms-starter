@@ -24,7 +24,6 @@ class Category extends BaseModel
     {
         return $this->belongsTo('Modules\Website\Models\Website');
     }
-
     /**
      * Create a new factory instance for the model.
      *

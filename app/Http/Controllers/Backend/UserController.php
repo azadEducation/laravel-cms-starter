@@ -275,7 +275,7 @@ class UserController extends Controller
 
         Log::info(label_case($module_title.' '.$module_action)." | '".$$module_name_singular->name.'(ID:'.$$module_name_singular->id.") ' by User:".auth()->user()->name.'(ID:'.auth()->user()->id.')');
 
-        return redirect("admin/{$module_name}");
+        return redirect("{$module_name}");
     }
 
     /**
@@ -489,7 +489,7 @@ class UserController extends Controller
 
         Flash::success(icon()." '".Str::singular($module_title)."' Updated Successfully")->important();
 
-        return redirect("admin/{$module_name}/profile/{$id}");
+        return redirect("{$module_name}/profile/{$id}");
     }
 
     /**
@@ -562,7 +562,7 @@ class UserController extends Controller
 
         Flash::success("<i class='fas fa-check'></i> '".Str::singular($module_title)."' Updated Successfully")->important();
 
-        return redirect("admin/{$module_name}");
+        return redirect("{$module_name}");
     }
 
     /**
@@ -635,7 +635,7 @@ class UserController extends Controller
         if ($id === 1) {
             $user->syncRoles(['super admin']);
 
-            return redirect("admin/{$module_name}")->with('flash_success', 'Update successful!');
+            return redirect("{$module_name}")->with('flash_success', 'Update successful!');
         }
 
         $roles = $request['roles'];
@@ -663,7 +663,7 @@ class UserController extends Controller
 
         Log::info(label_case($module_title.' '.$module_action)." | '".$$module_name_singular->name.'(ID:'.$$module_name_singular->id.") ' by User:".auth()->user()->name.'(ID:'.auth()->user()->id.')');
 
-        return redirect("admin/{$module_name}");
+        return redirect("{$module_name}");
     }
 
     /**
@@ -703,7 +703,7 @@ class UserController extends Controller
 
         Log::info(label_case($module_action)." '{$module_name}': '".$$module_name_singular->name.', ID:'.$$module_name_singular->id." ' by User:".auth()->user()->name);
 
-        return redirect("admin/{$module_name}");
+        return redirect("{$module_name}");
     }
 
     /**
@@ -762,7 +762,7 @@ class UserController extends Controller
 
         Log::info(label_case($module_action)." '{$module_name}': '".$$module_name_singular->name.', ID:'.$$module_name_singular->id." ' by User:".auth()->user()->name);
 
-        return redirect("admin/{$module_name}");
+        return redirect("{$module_name}");
     }
 
     /**

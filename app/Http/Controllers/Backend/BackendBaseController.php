@@ -130,7 +130,7 @@ class BackendBaseController extends Controller
         if ($module_name != "websites") {
             $current_website_id = session('current_website_id');
             $$module_name = $module_model::where('website_id', $current_website_id)->select('id', 'name', 'updated_at');
-        } else {
+        }else{
             $$module_name = $module_model::select('id', 'name', 'updated_at');
         }
 
@@ -253,10 +253,11 @@ class BackendBaseController extends Controller
         $module_icon = $this->module_icon;
         $module_model = $this->module_model;
         $module_name_singular = Str::singular($module_name);
+
         $module_action = 'Edit';
 
         $$module_name_singular = $module_model::findOrFail($id);
-        // dd($module_name);
+
         logUserAccess($module_title . ' ' . $module_action . ' | Id: ' . $$module_name_singular->id);
 
         return view(

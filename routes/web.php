@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LanguageController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +17,12 @@ use Illuminate\Support\Facades\Route;
 
 // Auth Routes
 require __DIR__ . '/auth.php';
-
+Route::get('/runcmd', function () {
+    // Replace 'your-artisan-command' with the name of the artisan command you want to run
+    Artisan::call('storage:link');
+    
+    return 'Artisan command executed successfully.';
+});
 // Language Switch
 Route::get('language/{language}', [LanguageController::class, 'switch'])->name('language.switch');
 
@@ -30,9 +36,9 @@ Route::get('dashboard', 'App\Http\Controllers\Frontend\FrontendController@index'
 */
 Route::group(['namespace' => 'App\Http\Controllers\Frontend', 'as' => 'frontend.'], function () {
     // Route::get('/', 'FrontendController@index')->name('index');
-    Route::get('home', 'FrontendController@index')->name('home');
-    Route::get('privacy', 'FrontendController@privacy')->name('privacy');
-    Route::get('terms', 'FrontendController@terms')->name('terms');
+    // Route::get('home', 'FrontendController@index')->name('home');
+    // Route::get('privacy', 'FrontendController@privacy')->name('privacy');
+    // Route::get('terms', 'FrontendController@terms')->name('terms');
 
     Route::group(['middleware' => ['auth']], function () {
         /*
